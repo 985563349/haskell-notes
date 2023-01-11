@@ -8,3 +8,4 @@ haskell 学习笔记
 - [运算](/docs/operation.md)
 - [函数](/docs/function.md)
 - [列表](/docs/list.md)
+- [字符串](/docs/string.md)
