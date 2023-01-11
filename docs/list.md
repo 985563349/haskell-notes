@@ -119,10 +119,10 @@ ghci> reverse [1, 2, 3]
 [3,2,1]
 ```
 
-**task**：从头部开始截取 n 个元素
+**take**：从头部开始截取 n 个元素
 
 ```shell
-ghci> task 2 [1, 2, 3]
+ghci> take 2 [1, 2, 3]
 [1,2]
 ```
 
@@ -166,4 +166,11 @@ ghci> product [1, 2, 3]
 ```shell
 ghci> 3 `elem` [1, 2, 3]
 True
+```
+
+**replicate**：对接收值复制 n 次
+
+```shell
+ghci> replicate 3 6
+[6,6,6]
 ```

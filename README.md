@@ -9,3 +9,4 @@ haskell 学习笔记
 - [函数](/docs/function.md)
 - [列表](/docs/list.md)
 - [字符串](/docs/string.md)
+- [列表-进阶](/docs/list-advanced.md)
