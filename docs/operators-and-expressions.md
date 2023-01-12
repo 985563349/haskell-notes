@@ -1,4 +1,4 @@
-# 运算
+# 运算符与表达式
 
 ### GHCi
 
@@ -104,4 +104,13 @@ True
 ```shell
 ghci: 5 + 4.0
 9.0
+```
+
+### if else
+
+haskell 中的`if else`是一个表达式，这就意味着它必须要返回一个值，并且 if 语句的 else 部分不可以省略。
+
+```shell
+if True then "hello" else "hello world"
+> "hello"
 ```
