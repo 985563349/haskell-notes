@@ -11,3 +11,4 @@ Haskell 学习笔记
 - [字符串](/docs/string.md)
 - [列表-进阶](/docs/list-advanced.md)
 - [元组](/docs/tuple.md)
+- [函数-进阶](/docs/function-advanced.md)
