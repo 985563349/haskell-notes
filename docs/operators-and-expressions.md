@@ -85,7 +85,7 @@ ghci 2 <= 3
 False
 ```
 
-Haskell 中`+`运算符要求两端都是数值，`==`运算符仅对两个可比较的值可用，这就要就它们的类型都必须一致。
+Haskell 中四则运算要求两端都是数值，比较运算仅对两个可比较的值可用，这就要就它们的类型都必须一致。
 
 ```shell
 ghci> 5 + '1'
@@ -108,7 +108,7 @@ ghci: 5 + 4.0
 
 ### if else
 
-haskell 中的`if else`是一个表达式，这就意味着它必须要返回一个值，并且 if 语句的 else 部分不可以省略。
+Haskell 中的`if else`是一个表达式，这就意味着它必须要返回一个值，并且 if 语句的 else 部分不可以省略。
 
 ```shell
 if True then "hello" else "hello world"

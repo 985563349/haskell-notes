@@ -10,7 +10,7 @@ ghci> lostNumbers
 [4,8,15,16,23,48]
 ```
 
-> GHCi 中定义常量可以使用`let`关键字，在GHCi 中执行`let a = 1`与在脚本中编写`a = 1`是等价的。
+> GHCi 中定义常量可以使用`let`关键字，在 GHCi 中执行`let a = 1`与在脚本中编写`a = 1`是等价的。
 
 ### 合并列表
 
@@ -168,7 +168,7 @@ ghci> 3 `elem` [1, 2, 3]
 True
 ```
 
-**replicate**：对一个参数复制 n 次，并返回一个列表
+**replicate**：对一个参数复制，并返回一个列表
 
 ```shell
 ghci> replicate 3 6

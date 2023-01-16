@@ -2,7 +2,7 @@
 
 ### 模式匹配
 
-模式匹配通过检查数据的特定结构来判定其是否匹配，并按模式从中取得数据。
+模式匹配通过`检查数据的特定结构`来判定其是否匹配，并按模式从中取得数据。
 
 #### 函数
 
@@ -108,7 +108,7 @@ densityTell mass volume
 
 最后一个守卫往往都是`otherwise`，它的定义就是简单一个`otherwise = True`，捕获一切。
 
-守卫和模式能很好的结合起来，如果没有找到合适的守卫，就会转入到下一模式：
+守卫和模式匹配能很好的结合起来，如果没有找到合适的守卫，就会转入到下一模式：
 
 ```haskell
 dayTell :: Int -> String
@@ -151,9 +151,9 @@ densityTell mass volume
               water = 1000.0
 ```
 
-> `where`定义的函数或名字，仅能在当前模式中使用，并且所有函数或名字都需要在单个列上对其，否则编译器无法正确识别。
+> `where`定义的函数或名字，仅能在当前模式中使用，并且所有函数或名字都需要在单个列上对齐，否则编译器无法正确识别。
 
-`where`模式匹配语法糖：
+`where`列表模式匹配语法糖：
 
 ```haskell
 initials :: String -> String -> String
@@ -161,6 +161,8 @@ initials firstname lastname = [f] ++ '. ' ++ [l] ++ '.'
 	where (f:_) = firstname
               (l:_) = lastname
 ```
+
+`where`函数模式匹配：
 
 ```haskell
 describeList :: [a] -> String
@@ -170,20 +172,18 @@ describeList xs = "The list is " ++ what xs
               what xs = "a longer list."
 ```
 
-
-
 ### Let
 
-`let`绑定是一个表达式，能够在任何位置定义局部变量。
+`let`绑定是一个表达式，能够在任何位置定义局部函数或名字。
 
-`let`的格式为`let [bindings] in [expressions]`，在`let`中绑定的名字仅对`in`部分可见。
+`let`的格式为`let [bindings] in [expressions]`，在`let`中的绑定仅对`in`部分可见。
 
 ```haskell
 ghci> 4 * (let a = 9 in a + 1) + 2
 42
 ```
 
-`let`也可以定义局部函数：
+`let`定义局部函数：
 
 ```haskell
 ghci> [let square x = x * x in (square 5, square 3, square 2)]
@@ -200,10 +200,10 @@ cylinder r h =
 	in  sideArea + 2 * topArea
 ```
 
-也可以在一行：
+也可以在一行，最后一个绑定后面的分号是可选的：
 
 ```haskell
-ghci> [let a = 100; b = 200; c = 300 in a * b * c] -- 最后一个绑定后面的分号是可选的
+ghci> [let a = 100; b = 200; c = 300 in a * b * c]
 [6000000]
 ```
 
@@ -221,16 +221,16 @@ calcBmis :: (RealFloat a) => [(a, a)] -> [a]
 calcBmis xs = [bmi | (w, h) <- xs, let bmi = w / h ^ 2, bmi >= 25.0]
 ```
 
-列表推导中`let`绑定的名字只在输出函数（`|`之前的部分）和限制条件中可见，因此可以省略掉`in`部分。
+列表推导中`let`的绑定只在输出函数（`|`之前的部分）和限制条件中可见，因此可以省略掉`in`部分。
 
-`let ... in`也放在限制条件/输出函数中，这样名字只对当前限制条件/输出函数可见：
+`let ... in`也放在限制条件或输出函数中，这样名字只对当前限制条件或输出函数可见：
 
 ```haskell
 ghci> [let a = 2 in a + x | x <- [1, 2, 3]]
 [3, 4, 5]
 ```
 
-GHCi中`in`部分也可以省略，名字在整个交互中可见：
+GHCi 中`in`部分也可以省略，名字在整个交互中可见：
 
 ```haskell
 ghci> let zoot x y z = x * y + z
@@ -242,7 +242,7 @@ ghci> zoot 3 9 2
 
 ### Case
 
-Haskell中的`case`是一个表达式，可以对变量的不同情况分别求值。
+Haskell 中的`case`是一个表达式，可以对变量的不同情况分别求值。
 
 `case`表达式语法：
 
@@ -258,9 +258,8 @@ case expression of pattern -> result
 head' :: [a] -> a
 head' [] = error "No head for empty lists!"
 head' (x:_) = x
-```
 
-```haskell
+
 head' :: [a] -> a
 head' xs = case xs of [] -> error "No head for empty lists!"
                       (x:_) -> x
