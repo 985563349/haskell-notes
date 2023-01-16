@@ -12,3 +12,4 @@ Haskell 学习笔记
 - [列表-进阶](/docs/list-advanced.md)
 - [元组](/docs/tuple.md)
 - [函数-进阶](/docs/function-advanced.md)
+- [类型和类型类](/docs/type.md)
