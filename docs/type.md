@@ -31,18 +31,18 @@ ghci> :t removeNonUppercase
 removeNonUppercase :: [Char] -> [Char]
 ```
 
-`removeNonUppercase`的类型为`[Char] -> [Char]`，参数类型与返回值类型之间是由`->`分。从参数和返回值中可以看出，它将一个字符串映射成另一个字符串。
+`removeNonUppercase`的类型为`[Char] -> [Char]`，参数类型与返回值类型之间是由`->`分隔。从参数和返回值中可以看出，它将一个字符串映射成另一个字符串。
 
 ### 定义类型
 
-常量类型：
+常量：
 
 ```haskell
 text :: String
 text = "HELLO!"
 ```
 
-函数类型：
+函数：
 
 ```haskell
 removeNonUppercase :: String -> String
@@ -51,7 +51,7 @@ removeNonUppercase xs = [x | x <- xs, x `elem` ['A'..'Z']]
 
 > `[Char]`与`String`是等价的，但是使用`String`会更清晰。
 
-多参数函数类型：
+多参数函数：
 
 ```haskell
 addTree :: Int -> Int -> Int -> Int
@@ -80,7 +80,7 @@ addThree x y z = x + y + z
 
 ### 类型变量
 
-使用`:t`检测`head`函数，返回类型中的`a`就是类型变量。
+使用`:t`检测`head`函数，返回类型中的`a`就是类型变量：
 
 ```shell
 ghci> :t head
@@ -93,7 +93,7 @@ head :: [a] -> a
 
 ### 类型类
 
-类型定义行为的接口，如果一个类型属于某类型类，那它必实现了该类型类所描述的行为。类型类和`接口（interface）`类似，用于约束类型变量。
+类型定义行为的接口，如果一个类型属于某类型类，那它必实现了该类型类所描述的行为。类型类和`接口（interface）`类似，可用于约束变量类型。
 
 约束变量类型必须在`Eq`类型类中：
 
@@ -140,6 +140,12 @@ compare :: Ord a => a -> a -> Ordering
 
 ghci> compare 1 2
 LT
+
+ghci> 5 >= 2
+True
+
+ghci> "ac" > "bd"
+False
 ```
 
 除了函数类型，其他类型都是`Ord`的实例。
