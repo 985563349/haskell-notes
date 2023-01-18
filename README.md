@@ -14,3 +14,4 @@ Haskell 学习笔记
 - [函数-进阶](/docs/function-advanced.md)
 - [类型和类型类](/docs/type.md)
 - [递归](/docs/recursion.md)
+- [高阶函数](/docs/hof.md)
