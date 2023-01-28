@@ -171,7 +171,7 @@ lambda 是一个表达式，它会回传一个函数。
 
 ```haskell
 flip' :: (a -> b -> c) -> (b -> a -> c)
-flip' f = \x y = f y x
+flip' f = \x y -> f y x
 ```
 
 ### $函数
@@ -213,7 +213,7 @@ ghci> sum' [3, 5, 2, 1]
 11
 ```
 
-折叠执行过程：
+`sum'`函数执行过程：
 
 ![fold](./accets/fold.png)
 
@@ -256,6 +256,7 @@ ghci> scanl1 (\acc x -> if x > acc then x else acc) [3, 4, 5, 3, 7, 9, 2, 1]
 ### 组合
 
 在数学中，函数组合是这样定义的：
+
 ![composition](./accets/composition.png)
 
 表示组合两个函数成为一个函数，以`x`调用这一函数，就与用`x`调用`g`再用所得的结果调用`f`等价。
