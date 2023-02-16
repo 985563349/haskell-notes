@@ -23,3 +23,22 @@ infixr 5 ^++
 (^++) :: List a -> List a -> List a
 Empty ^++ ys = ys
 (x:-:xs) ^++ ys = x :-: (xs ^++ ys)
+
+class YesNo a where
+  yesno :: a -> Bool
+
+instance YesNo Int where
+  yesno 0 = False
+  yesno _ = True
+
+
+instance YesNo [a] where
+  yesno [] = False
+  yesno _ = True
+
+instance YesNo Bool where
+  yesno = id
+
+instance YesNo (Maybe m) where
+  yesno (Just _) = True
+  yesno Nothing = False
